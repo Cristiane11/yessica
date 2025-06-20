@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" styleSheet />
+    <script src="index.js" defer></script>
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1>Show the Projects based on select Skills</h1>
+    <div>
+      <label for="filter-select">Filter:</label>
+      <select id="filter-select">
+        <option value="all">Show All</option>
+        <option value="bootstrap">Bootstrap</option>
+        <option value="flexbox">Flexbox & Grid</option>
+        <option value="react ">React Js</option>
+      </select>
+      <button id="sort-btn">Sort By Skills</button>
+    </div>
+    <div id="project-container" class="project-container">
+
+</div>
+    <p id="total-projects"></p>
+  </body>
+</html>
