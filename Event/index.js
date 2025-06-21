@@ -32,9 +32,10 @@ const container = document.getElementById('project-container');
 const dropDown = document.getElementById('filter-select');
 const sortBtn = document.getElementById('sort-btn')
 
-//
+
 projects.forEach(project =>{
-    const card = document.createElement('div');
+    if(project.technologies.includes('Bootstrap')){
+     const cardBootstrap = document.createElement('div');
     card.className = "project-card";
     card.innerHTML = `
     <img src="${project.image}" alt="${project.title}">
@@ -43,7 +44,31 @@ projects.forEach(project =>{
     <p><strong>Tech:</strong> ${project.technologies.join(", ")}</p>
     <a href="${project.link}" target="_blank">View Project</a>
     `;
-    container.appendChild(card)
+    container.appendChild(cardBootstrap)   
+    }else if(project.technologies.includes('React')){
+      
+    const cardReact = document.createElement('div');
+    card.className = "project-card";
+    card.innerHTML = `
+    <img src="${project.image}" alt="${project.title}">
+    <h2>${project.title}</h2>
+    <p>${project.description}</p>
+    <p><strong>Tech:</strong> ${project.technologies.join(", ")}</p>
+    <a href="${project.link}" target="_blank">View Project</a>
+    `;
+    container.appendChild(cardReact)   
+    }else if (project.technologies.includes('flexbox')){
+    const cardFlexbox= document.createElement('div');
+    card.className = "project-card";
+    card.innerHTML = `
+    <img src="${project.image}" alt="${project.title}">
+    <h2>${project.title}</h2>
+    <p>${project.description}</p>
+    <p><strong>Tech:</strong> ${project.technologies.join(", ")}</p>
+    <a href="${project.link}" target="_blank">View Project</a>
+    `;
+    container.appendChild(cardFlexbox)   
+    }
 });
 dropDown.addEventListener('change', (event)=>{
     const value = event.target.value;
@@ -51,11 +76,11 @@ dropDown.addEventListener('change', (event)=>{
     if (value === 'all'){
         filtered = projects;
     }else if (value === 'bootstrap'){
-        filtered = projects.filter((proj)=>proj.title ="bootstrap") 
+        filtered = cardBootstrap;
     }else if (value === 'flexbox' ){
-        filtered = projects.filter((proj)=>proj.title ="flexbox") 
+        filtered = cardFlexox;
     }else if(value === 'react'){
-      filtered = projects.filter((proj)=>proj.title ="react")   
+      filtered = cardReact;   
     }
   sortBtn.onclick = container(filtered);
 
